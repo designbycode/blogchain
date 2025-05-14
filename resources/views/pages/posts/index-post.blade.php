@@ -6,12 +6,12 @@
         <p class="text-gray-500 text-lg">Get the latest news about everything crypto </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 mt-8">
             @foreach($posts as $post)
-                <div class="bg-gray-950 rounded-lg p-4 flex flex-col shadow-md hover:shadow-lg transition duration-300">
-                    <img class="aspect-video rounded-lg drop-shadow-spread drop-shadow-gray-900 -translate-y-8 border border-primary-500/75"
+                <div class="bg-gray-950 rounded-lg p-4 flex flex-col hover:scale-105 shadow-md hover:shadow-lg transition duration-300">
+                    <img class="aspect-video bg-gray-800 rounded-lg drop-shadow-spread drop-shadow-gray-900 -translate-y-8 border border-primary-500/75"
                          src="https://picsum.photos/id/{{$post->id}}/400/260"
                          alt="{{ $post->title }}">
                     <div class="flex-1">
-                        <a href="#" class="font-semibold -mt-5 line-clamp-2">
+                        <a wire:navigate href="{{ route('posts.show', $post) }}" class="font-semibold -mt-5 line-clamp-2">
                             {{ $post->title }}
                         </a>
                     </div>

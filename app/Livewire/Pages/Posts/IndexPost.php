@@ -14,7 +14,7 @@ class IndexPost extends Component
     public function render(): View
     {
         return view('pages.posts.index-post', [
-            'posts' => Post::latest()->paginate(9),
+            'posts' => Post::latest()->simplePaginate(9),
         ]);
     }
 }

@@ -2,11 +2,16 @@
 
 namespace App\Livewire\Pages\Posts;
 
+use App\Models\Post;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class ViewPost extends Component
 {
-    public function render()
+
+    public Post $post;
+
+    public function render(): View
     {
         return view('pages.posts.view-post');
     }
