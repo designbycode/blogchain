@@ -1,5 +1,5 @@
 <footer class="bg-white dark:bg-gray-950/75">
-    <div class="wrapper space-y-8 px-4 py-16 lg:space-y-16">
+    <div class="wrapper space-y-8 py-16 lg:space-y-16">
         <div class="sm:flex sm:items-center sm:justify-between">
             <div class="text-primary-600 dark:text-primary-500">
                 <a class="text-4xl font-black flex space-x-1 items-center group" href="{{ route('home') }}">

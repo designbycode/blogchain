@@ -12,10 +12,10 @@
             </span>
         </a>
 
-        <div class="flex space-x-4 text-sm text-gray-500">
+        <div class="flex space-x-4 text-sm text-gray-500 items-center">
             <a wire:navigate class="hover:text-primary-300" href="{{ route('home') }}">Home</a>
-            <a wire:navigate class="hover:text-primary-300" href="{{ route('login') }}">Blog</a>
-            <a wire:navigate class="hover:text-primary-300" href="{{ route('login') }}">Trending Coins</a>
+            <a wire:navigate class="hover:text-primary-300" href="{{ route('posts.index') }}">Blog</a>
+            {{--            <a wire:navigate class="hover:text-primary-300" href="{{ route('login') }}">Trending Coins</a>--}}
             @guest
                 <div class="w-px h-6 bg-gradient-to-b from-transparent via-gray-700 to-transparent inline-flex shrink-0"></div>
                 <a wire:navigate class="hover:text-primary-300" href="{{ route('login') }}">Login</a>

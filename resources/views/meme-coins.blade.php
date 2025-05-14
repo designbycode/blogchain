@@ -1,4 +1,4 @@
-<div>
+<div class="wrapper my-12">
     <h1 class="text-3xl font-bold mb-6 text-center">🚀 Trending Meme Coins</h1>
 
     @if ($loading)

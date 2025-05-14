@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 use Livewire\Component;
 
+
 class MemeCoins extends Component
 {
     public array $coins = [];
