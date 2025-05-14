@@ -1,10 +1,9 @@
 <?php
 
+use App\Livewire\Pages\Posts\IndexPost;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', IndexPost::class)->name('home');
 
 Route::middleware([
     'auth:sanctum',

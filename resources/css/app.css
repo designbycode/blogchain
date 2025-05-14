@@ -1,7 +1,148 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/laravel/jetstream/**/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-primary-50: oklch(0.962 0.018 272.314);
+    --color-primary-100: oklch(0.93 0.034 272.788);
+    --color-primary-200: oklch(0.87 0.065 274.039);
+    --color-primary-300: oklch(0.785 0.115 274.713);
+    --color-primary-400: oklch(0.673 0.182 276.935);
+    --color-primary-500: oklch(0.585 0.233 277.117);
+    --color-primary-600: oklch(0.511 0.262 276.966);
+    --color-primary-700: oklch(0.457 0.24 277.023);
+    --color-primary-800: oklch(0.398 0.195 277.366);
+    --color-primary-900: oklch(0.359 0.144 278.697);
+    --color-primary-950: oklch(0.257 0.09 281.288);
+
+    --color-gray-50: oklch(0.985 0 0);
+    --color-gray-100: oklch(0.967 0.001 286.375);
+    --color-gray-200: oklch(0.92 0.004 286.32);
+    --color-gray-300: oklch(0.871 0.006 286.286);
+    --color-gray-400: oklch(0.705 0.015 286.067);
+    --color-gray-500: oklch(0.552 0.016 285.938);
+    --color-gray-600: oklch(0.442 0.017 285.786);
+    --color-gray-700: oklch(0.37 0.013 285.805);
+    --color-gray-800: oklch(0.274 0.006 286.033);
+    --color-gray-900: oklch(0.21 0.006 285.885);
+    --color-gray-950: oklch(0.141 0.005 285.823);
+
+
+    --color-mute-50: oklch(0.985 0 0);
+    --color-mute-100: oklch(0.97 0 0);
+    --color-mute-200: oklch(0.922 0 0);
+    --color-mute-300: oklch(0.87 0 0);
+    --color-mute-400: oklch(0.708 0 0);
+    --color-mute-500: oklch(0.556 0 0);
+    --color-mute-600: oklch(0.439 0 0);
+    --color-mute-700: oklch(0.371 0 0);
+    --color-mute-800: oklch(0.269 0 0);
+    --color-mute-900: oklch(0.205 0 0);
+    --color-mute-950: oklch(0.145 0 0);
+
+    --color-danger-50: oklch(0.969 0.015 12.422);
+    --color-danger-100: oklch(0.941 0.03 12.58);
+    --color-danger-200: oklch(0.892 0.058 10.001);
+    --color-danger-300: oklch(0.81 0.117 11.638);
+    --color-danger-400: oklch(0.712 0.194 13.428);
+    --color-danger-500: oklch(0.645 0.246 16.439);
+    --color-danger-600: oklch(0.586 0.253 17.585);
+    --color-danger-700: oklch(0.514 0.222 16.935);
+    --color-danger-800: oklch(0.455 0.188 13.697);
+    --color-danger-900: oklch(0.41 0.159 10.272);
+    --color-danger-950: oklch(0.271 0.105 12.094);
+
+    --color-info-50: oklch(0.977 0.013 236.62);
+    --color-info-100: oklch(0.951 0.026 236.824);
+    --color-info-200: oklch(0.901 0.058 230.902);
+    --color-info-300: oklch(0.828 0.111 230.318);
+    --color-info-400: oklch(0.746 0.16 232.661);
+    --color-info-500: oklch(0.685 0.169 237.323);
+    --color-info-600: oklch(0.588 0.158 241.966);
+    --color-info-700: oklch(0.5 0.134 242.749);
+    --color-info-800: oklch(0.443 0.11 240.79);
+    --color-info-900: oklch(0.391 0.09 240.876);
+    --color-info-950: oklch(0.293 0.066 243.157);
+
+
+    --color-success-50: oklch(0.986 0.031 120.757);
+    --color-success-100: oklch(0.967 0.067 122.328);
+    --color-success-200: oklch(0.938 0.127 124.321);
+    --color-success-300: oklch(0.897 0.196 126.665);
+    --color-success-400: oklch(0.841 0.238 128.85);
+    --color-success-500: oklch(0.768 0.233 130.85);
+    --color-success-600: oklch(0.648 0.2 131.684);
+    --color-success-700: oklch(0.532 0.157 131.589);
+    --color-success-800: oklch(0.453 0.124 130.933);
+    --color-success-900: oklch(0.405 0.101 131.063);
+    --color-success-950: oklch(0.274 0.072 132.109);
+
+    --color-waring-50: oklch(0.987 0.022 95.277);
+    --color-waring-100: oklch(0.962 0.059 95.617);
+    --color-waring-200: oklch(0.924 0.12 95.746);
+    --color-waring-300: oklch(0.879 0.169 91.605);
+    --color-waring-400: oklch(0.828 0.189 84.429);
+    --color-waring-500: oklch(0.769 0.188 70.08);
+    --color-waring-600: oklch(0.666 0.179 58.318);
+    --color-waring-700: oklch(0.555 0.163 48.998);
+    --color-waring-800: oklch(0.473 0.137 46.201);
+    --color-waring-900: oklch(0.414 0.112 45.904);
+    --color-waring-950: oklch(0.279 0.077 45.635);
+
+    --drop-shadow-spread: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
+}
+
+button {
+    @apply cursor-pointer;
+}
+
+@utility wrapper {
+    @apply px-4 w-full md:px-6 lg:px-8 max-w-7xl mx-auto;
+}
 
 [x-cloak] {
     display: none;
+}
+
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@utility animate-marquee {
+    animation: marquee 20s linear infinite;
+}
+.group:hover .animate-marquee {
+    animation-play-state: paused;
 }
