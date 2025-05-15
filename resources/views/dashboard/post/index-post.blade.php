@@ -9,6 +9,7 @@
             <div class="w-full max-w-sm flex space-x-2 relative">
                 <div class="relative">
                     <input
+                        wire:model.live.debounce.300ms="search"
                         class="bg-white w-full pr-11 h-10 pl-3 py-2  placeholder:text-gray-400 text-gray-700 text-sm border border-gray-700/25 rounded
                         transition
                          duration-200 ease focus:outline-none focus:border-gray-400 hover:border-gray-400 shadow-sm focus:shadow-md"

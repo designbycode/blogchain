@@ -19,7 +19,7 @@
 </head>
 <body class="font-sans antialiased min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
 <x-banner />
-<x-app::marquee></x-app::marquee>
+{{--<x-app::marquee></x-app::marquee>--}}
 <x-app::navigation></x-app::navigation>
 
 <!-- Page Content -->
@@ -75,6 +75,6 @@
     </template>
 </div>
 
-@livewireScripts
+@livewireScriptConfig
 </body>
 </html>

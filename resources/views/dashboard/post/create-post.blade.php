@@ -29,10 +29,15 @@
             <x-mint::form-error for="excerpt" />
         </x-mint::form-section>
 
+
         <x-mint::form-section>
-            <x-mint::form-label class="text-white" for="content">Content</x-mint::form-label>
-            <x-mint::form-textarea :autoGrow="true" id="content" rows="10" name="content" wire:model="content"></x-mint::form-textarea>
+            <x-mint::form-label class="text-white " for="content">Content</x-mint::form-label>
+            {{--@formatter:off--}}
+<x-mint::form-textarea @class(['w-full rounded-md indent-0']) :autoGrow="true" id="content" rows="10" name="content"
+                       wire:model="content"></x-mint::form-textarea>
+{{--@formatter:on--}}
             <x-mint::form-error for="content" />
+
 
         </x-mint::form-section>
 

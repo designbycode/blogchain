@@ -15,6 +15,8 @@ class DashboardIndexPost extends Component
 
     use WithPagination;
 
+    public string $search = '';
+
     public function deletePost($postId): void
     {
 
@@ -31,8 +33,11 @@ class DashboardIndexPost extends Component
 
     public function render(): View
     {
+        $posts = auth()->user()->posts()->where('title', 'like', '%' . $this->search . '%')
+            ->paginate(5);
+
         return view('dashboard.post.index-post', [
-            'posts' => auth()->user()->posts()->latest()->paginate(5),
+            'posts' => $posts,
         ]);
     }
 }
