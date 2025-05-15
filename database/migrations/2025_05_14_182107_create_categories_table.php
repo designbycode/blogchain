@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('name')->unique();
             $table->string('slug')->unique()->index();
             $table->tinyText('description')->nullable();
+            $table->string('color')->nullable();
             $table->string('image')->nullable();
             $table->boolean('live')->default(true);
             $table->softDeletes();

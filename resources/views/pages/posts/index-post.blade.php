@@ -34,7 +34,6 @@
                             </svg>
                             <span class="text-sm">{{ random_int(4, 100) }}</span>
                         </button>
-
                     </footer>
 
                 </div>
