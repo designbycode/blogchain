@@ -31,15 +31,8 @@
 
         <x-mint::form-section>
             <x-mint::form-label class="text-white" for="content">Content</x-mint::form-label>
-            <x-mint::form-textarea id="content" rows="10" name="content" wire:model="content"></x-mint::form-textarea>
+            <x-mint::form-textarea :autoGrow="true" id="content" rows="10" name="content" wire:model="content"></x-mint::form-textarea>
             <x-mint::form-error for="content" />
-
-            <div id="editor">
-                <p>Hello World!</p>
-                <p>Some initial <strong>bold</strong> text</p>
-                <p><br /></p>
-            </div>
-
 
         </x-mint::form-section>
 
