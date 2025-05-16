@@ -25,11 +25,14 @@ class MemeCoins extends Component
             $trending = Http::get('https://api.coingecko.com/api/v3/search/trending')->json();
             $ids = collect($trending['coins'])->pluck('item.id')->implode(',');
 
-            // Step 2: Get market data for those IDs
+            // Step 2: Get market data for those IDs including additional fields
             $markets = Http::get("https://api.coingecko.com/api/v3/coins/markets", [
                 'vs_currency' => 'usd',
                 'ids' => $ids,
+                'sparkline' => 'true', // Enable sparkline data
+                'price_change_percentage' => '1h,24h,7d', // Include price change percentages
             ])->json();
+
 
             $this->coins = $markets;
         } catch (Exception $e) {
