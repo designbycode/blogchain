@@ -7,10 +7,10 @@
                 border-primary-500/75 aspect-video object-cover" alt="{{ $post->title }}" />
             </div>
 
-            <h1 class="text-3xl font-bold text-white">
+            <h1 class="text-3xl font-bold dark:text-white">
                 {{ $post->title }}
             </h1>
-            <div class="prose prose-invert w-full min-w-full ">
+            <div class="prose dark:prose-invert w-full min-w-full ">
                 {!! Str::markdown($post->content ) !!}
             </div>
         </div>

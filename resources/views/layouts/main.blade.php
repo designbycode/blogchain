@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth h-full ">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth h-full dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
     <!-- Styles -->
     @livewireStyles
 </head>
-<body class="font-sans antialiased min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+<body class="font-sans antialiased min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
 <x-banner />
 {{--<x-app::marquee></x-app::marquee>--}}
 <x-app::navigation></x-app::navigation>

@@ -1,4 +1,4 @@
-<nav class="bg-white dark:bg-gray-950/75 relative z-20">
+<nav class="bg-white dark:bg-gray-950/75 relative z-20" x-data="{ open: false }">
     <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
         <a wire:navigate class="text-xl font-bold flex space-x-1 items-center group" href="{{ route('home') }}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -22,7 +22,6 @@
                             Home
                         </a>
                     </li>
-
                     <li>
                         <a wire:navigate
                            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
@@ -31,8 +30,6 @@
                             Blog
                         </a>
                     </li>
-
-
                 </ul>
             </nav>
 
@@ -114,8 +111,8 @@
                     @endguest
                 </div>
 
-                <button
-                    class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                <button x-on:click="open = !open"
+                        class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
                 >
                     <span class="sr-only">Toggle menu</span>
                     <svg
