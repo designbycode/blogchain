@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
+use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -13,6 +14,8 @@ use Livewire\Component;
 #[Layout('layouts.app')]
 class DashboardEditPost extends Component
 {
+
+    use InteractsWithBanner;
 
     public Post $post;
     public string $title = '';
@@ -58,8 +61,9 @@ class DashboardEditPost extends Component
             'category_id' => $this->category,
             'live' => $this->live,
         ]);
-
-        $this->dispatch('toast', message: 'Post updated successfully.', type: 'success');
+        $this->banner('Post updated successfully.');
+            
+//        $this->dispatch('toast', message: 'Post updated successfully.', type: 'success');
 //        $this->redirectRoute('dashboard.posts.index');
     }
 

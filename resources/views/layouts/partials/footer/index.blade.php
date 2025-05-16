@@ -21,7 +21,7 @@
                         href="#"
                         rel="noreferrer"
                         target="_blank"
-                        class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                        class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200"
                     >
                         <span class="sr-only">Facebook</span>
 
@@ -40,7 +40,7 @@
                         href="#"
                         rel="noreferrer"
                         target="_blank"
-                        class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                        class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200"
                     >
                         <span class="sr-only">Instagram</span>
 
@@ -59,7 +59,7 @@
                         href="#"
                         rel="noreferrer"
                         target="_blank"
-                        class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                        class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200"
                     >
                         <span class="sr-only">Twitter</span>
 
@@ -76,7 +76,7 @@
                         href="#"
                         rel="noreferrer"
                         target="_blank"
-                        class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                        class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200"
                     >
                         <span class="sr-only">GitHub</span>
 
@@ -95,7 +95,7 @@
                         href="#"
                         rel="noreferrer"
                         target="_blank"
-                        class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                        class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200"
                     >
                         <span class="sr-only">Dribbble</span>
 
@@ -119,31 +119,31 @@
 
                 <ul class="mt-6 space-y-4 text-sm">
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             1on1 Coaching
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             Company Review
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             Accounts Review
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             HR Consulting
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             SEO Optimisation
                         </a>
                     </li>
@@ -155,19 +155,19 @@
 
                 <ul class="mt-6 space-y-4 text-sm">
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             About
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             Meet the Team
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             Accounts Review
                         </a>
                     </li>
@@ -179,19 +179,19 @@
 
                 <ul class="mt-6 space-y-4 text-sm">
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             Contact
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             FAQs
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             Live Chat
                         </a>
                     </li>
@@ -203,25 +203,25 @@
 
                 <ul class="mt-6 space-y-4 text-sm">
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             Accessibility
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             Returns Policy
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             Refund Policy
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                        <a href="#" class="text-gray-700 transition hover:text-primary-500 hover:underline dark:text-gray-200">
                             Hiring-3 Statistics
                         </a>
                     </li>

@@ -5,6 +5,7 @@ namespace App\Livewire\Dashboard\Post;
 use App\Models\Category;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
+use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -12,6 +13,8 @@ use Livewire\Component;
 #[Layout('layouts.app')]
 class DashboardCreatePost extends Component
 {
+    use InteractsWithBanner;
+
     public string $title = '';
     public string $slug = '';
     public string $content = '';
@@ -50,7 +53,9 @@ class DashboardCreatePost extends Component
             'live' => $this->live,
         ]);
 
-        $this->dispatch('toast', message: 'Post created successfully.', type: 'success');
+//        $this->dispatch('toast', message: 'Post created successfully.', type: 'success');
+        $this->banner('Post created successfully.');
+        sleep(3);
         $this->redirectRoute('dashboard.posts.edit', $post);
     }
 
