@@ -15,7 +15,9 @@
             </div>
         </div>
         <div class="col-span-2 relative">
-            <div class="bg-gray-950/75 border-border-gray-950 min-h-40 rounded-lg sticky top-12 z-0"></div>
+            <div class=" sticky top-12 z-0">
+                <livewire:component.joke-component />
+            </div>
         </div>
 
     </div>

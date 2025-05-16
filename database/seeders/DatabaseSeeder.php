@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,26 +17,27 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call([
-            RolesPermissionsSeeder::class,
-            CategorySeeder::class,
+            JokeSeeder::class,
+//            RolesPermissionsSeeder::class,
+//            CategorySeeder::class,
 //            PostSeeder::class,
         ]);
 
-        $user = User::factory()->create([
-            'name' => 'Claude',
-            'email' => 'claude@blogchain.news',
-            'password' => bcrypt(env('ADMIN_PASSWORD', 'password')),
-        ]);
-
-        $user->assignRole('super-admin');
-
-        $user = User::factory()->create([
-            'name' => 'Renier',
-            'email' => 'renier@blogchain.news',
-            'password' => bcrypt(env('ADMIN_PASSWORD', 'password')),
-        ]);
-
-        $user->assignRole('super-admin');
+//        $user = User::factory()->create([
+//            'name' => 'Claude',
+//            'email' => 'claude@blogchain.news',
+//            'password' => bcrypt(env('ADMIN_PASSWORD', 'password')),
+//        ]);
+//
+//        $user->assignRole('super-admin');
+//
+//        $user = User::factory()->create([
+//            'name' => 'Renier',
+//            'email' => 'renier@blogchain.news',
+//            'password' => bcrypt(env('ADMIN_PASSWORD', 'password')),
+//        ]);
+//
+//        $user->assignRole('super-admin');
 
     }
 }
