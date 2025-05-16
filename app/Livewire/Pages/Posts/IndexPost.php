@@ -11,10 +11,11 @@ class IndexPost extends Component
 {
     use WithPagination;
 
+
     public function render(): View
     {
         return view('pages.posts.index-post', [
-            'posts' => Post::latest()->simplePaginate(9),
+            'posts' => Post::live()->with(['likes'])->latest()->simplePaginate(9),
         ]);
     }
 }

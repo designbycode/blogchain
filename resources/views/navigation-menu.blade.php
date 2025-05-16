@@ -9,7 +9,7 @@
                     {{--                        <x-application-mark class="block h-9 w-auto" />--}}
                     {{--                    </a>--}}
 
-                    <a class="text-xl dark:text-white font-bold flex space-x-1 items-center group" href="{{ route('dashboard.index') }}">
+                    <a class="text-xl dark:text-white font-bold flex space-x-1 items-center group" href="{{ route('home') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                              class="size-6 group-hover:stroke-primary-500 group-hover:animate-pulse transition-all">
                             <path stroke-linecap="round" stroke-linejoin="round"

@@ -7,9 +7,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 mt-8">
             @foreach($posts as $post)
                 <div class="bg-gray-950 rounded-lg p-4 flex flex-col hover:scale-105 shadow-md hover:shadow-lg transition duration-300">
-                    <img class="aspect-video bg-gray-800 rounded-lg drop-shadow-spread drop-shadow-gray-900 -translate-y-8 border border-primary-500/75"
-                         src="https://picsum.photos/id/{{$post->id}}/400/260"
-                         alt="{{ $post->title }}">
+                    <a wire:navigate href="{{ route('posts.show', $post) }}">
+                        <img class="aspect-video bg-gray-800 rounded-lg drop-shadow-spread drop-shadow-gray-900 -translate-y-8 border border-primary-500/75"
+                             src="https://picsum.photos/id/{{$post->id}}/400/260"
+                             alt="{{ $post->title }}">
+                    </a>
                     <div class="flex-1">
                         <a wire:navigate href="{{ route('posts.show', $post) }}" class="font-semibold -mt-5 line-clamp-2">
                             {{ $post->title }}
@@ -27,13 +29,7 @@
                             <span class="text-sm ">{{ random_int(4, 100) }}</span>
                         </button>
 
-                        <button class=" flex items-center space-x-0.5">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5 text-red-500">
-                                <path
-                                    d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
-                            </svg>
-                            <span class="text-sm">{{ random_int(4, 100) }}</span>
-                        </button>
+                        <livewire:like :model="$post" />
                     </footer>
 
                 </div>

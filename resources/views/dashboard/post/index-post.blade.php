@@ -49,6 +49,16 @@
                 </th>
                 <th class="p-4 border-b border-gray-700/25 bg-gray-900/50">
                     <p class="text-sm font-normal leading-none text-gray-500">
+                        Live
+                    </p>
+                </th>
+                <th class="p-4 border-b border-gray-700/25 bg-gray-900/50">
+                    <p class="text-sm font-normal leading-none text-gray-500">
+                        Likes
+                    </p>
+                </th>
+                <th class="p-4 border-b border-gray-700/25 bg-gray-900/50">
+                    <p class="text-sm font-normal leading-none text-gray-500">
                         Published At
                     </p>
                 </th>
@@ -67,7 +77,6 @@
             <tbody>
             @foreach($posts as $post)
                 <tr class="hover:bg-gray-900/50 border-b border-gray-700/25" wire:key="{{ $post->id }}">
-
                     <td class="p-4 py-5">
                         <p class="text-sm text-gray-500">{{ $post->title }}</p>
                     </td>
@@ -76,6 +85,12 @@
                               style="color: {{ $post->category->color }}; border-color: {{ $post->category->color }}">{{
                         $post->category->name
                         }}</span>
+                    </td>
+                    <td class="p-4 py-5">
+                        <p class="text-sm text-gray-500">{{ $post->live ? 'Live' : 'Not Live' }}</p>
+                    </td>
+                    <td class="p-4 py-5">
+                        <p class="text-sm text-gray-500">{{ $post->likeCount }}</p>
                     </td>
                     <td class="p-4 py-5">
                         <p class="text-sm text-gray-500">{{ $post->published_at ? 'publish' : 'unpublished' }}</p>

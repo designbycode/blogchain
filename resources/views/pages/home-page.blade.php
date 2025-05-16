@@ -1,3 +1,9 @@
-<div class="text-white wrapper my-12">
-    <livewire:meme-coins />
+<div>
+
+    <x-hero />
+    <div class="my-20">
+        <livewire:meme-coins amount="6" />
+    </div>
+
+
 </div>

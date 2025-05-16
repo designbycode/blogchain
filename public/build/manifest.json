@@ -1,8 +1,12 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-iisGmN26.css",
+    "file": "assets/app-CSFKw8YY.css",
     "src": "resources/css/app.css",
     "isEntry": true
+  },
+  "resources/img/bg.jpg": {
+    "file": "assets/bg-DybVqxbB.jpg",
+    "src": "resources/img/bg.jpg"
   },
   "resources/img/crypto.jpeg": {
     "file": "assets/crypto-DKURPdC9.jpeg",

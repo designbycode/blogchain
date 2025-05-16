@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,18 +32,8 @@ class AppServiceProvider extends ServiceProvider
         // Register custom Blade components
         Blade::anonymousComponentPath(__DIR__ . '/../../resources/views/layouts/partials', 'app');
 
+        Model::automaticallyEagerLoadRelationships();
 
-        // Register a custom Blade directive for generating unique slugs
-        Str::macro('generateUniqueSlug', function (string $title, Model $model, string $column = 'name', string $slugField = 'slug') {
-            $slug = Str::slug($title);
-            $originalSlug = $slug;
-
-            while ($model->newQuery()->where($slugField, $slug)->exists()) {
-                $slug = $originalSlug . '-' . rand(1000, 9999);
-            }
-
-            return $slug;
-        });
 
     }
 }

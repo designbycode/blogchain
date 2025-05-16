@@ -4,12 +4,14 @@
 use App\Livewire\Dashboard\Post\DashboardCreatePost;
 use App\Livewire\Dashboard\Post\DashboardEditPost;
 use App\Livewire\Dashboard\Post\DashboardIndexPost;
-use App\Livewire\MemeCoins;
+use App\Livewire\Pages\HomePage;
 use App\Livewire\Pages\Posts\IndexPost;
 use App\Livewire\Pages\Posts\ViewPost;
+use App\Livewire\Pages\TrendingCoinsPage;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', MemeCoins::class)->name('home');
+Route::get('/', HomePage::class)->name('home');
+Route::get('/trending-coins', TrendingCoinsPage::class)->name('trending-coins');
 Route::get('/posts/', IndexPost::class)->name('posts.index');
 Route::get('/posts/{post:slug}', ViewPost::class)->name('posts.show');
 

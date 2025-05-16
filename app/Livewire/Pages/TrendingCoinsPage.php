@@ -1,22 +1,19 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Pages;
 
 use Exception;
 use Illuminate\Support\Facades\Http;
-use Illuminate\View\View;
 use Livewire\Component;
 
-
-class MemeCoins extends Component
+class TrendingCoinsPage extends Component
 {
+
     public array $coins = [];
     public bool $loading = true;
-    public int $amount = 12; // Default to 7 trending coins (CoinGecko trending usually returns 7)
 
-    public function mount(int $amount = 3): void
+    public function mount(): void
     {
-        $this->amount = $amount;
         $this->fetchTrendingCoins();
     }
 
@@ -25,18 +22,16 @@ class MemeCoins extends Component
         try {
             // Step 1: Get trending coin IDs
             $trending = Http::get('https://api.coingecko.com/api/v3/search/trending')->json();
-            $ids = collect($trending['coins'])
-                ->take($this->amount)
-                ->pluck('item.id')
-                ->implode(',');
+            $ids = collect($trending['coins'])->pluck('item.id')->implode(',');
 
             // Step 2: Get market data for those IDs including additional fields
             $markets = Http::get("https://api.coingecko.com/api/v3/coins/markets", [
                 'vs_currency' => 'usd',
                 'ids' => $ids,
-                'sparkline' => 'true',
-                'price_change_percentage' => '1h,24h,7d',
+                'sparkline' => 'true', // Enable sparkline data
+                'price_change_percentage' => '1h,24h,7d', // Include price change percentages
             ])->json();
+
 
             $this->coins = $markets;
         } catch (Exception $e) {
@@ -47,8 +42,8 @@ class MemeCoins extends Component
         $this->loading = false;
     }
 
-    public function render(): View
+    public function render()
     {
-        return view('meme-coins');
+        return view('pages.trending-coins-page');
     }
 }

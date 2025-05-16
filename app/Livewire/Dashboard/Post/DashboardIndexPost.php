@@ -33,8 +33,8 @@ class DashboardIndexPost extends Component
 
     public function render(): View
     {
-        $posts = auth()->user()->posts()->where('title', 'like', '%' . $this->search . '%')
-            ->paginate(5);
+        $posts = auth()->user()->posts()->with('likes')->where('title', 'like', '%' . $this->search . '%')
+            ->paginate(10);
 
         return view('dashboard.post.index-post', [
             'posts' => $posts,

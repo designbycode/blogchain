@@ -4,7 +4,6 @@
     @if ($loading)
         <p class="text-center text-gray-500">Loading...</p>
     @else
-        {{--        <livewire:chart-component />--}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach ($coins as $coin)
                 <div class="bg-white dark:bg-gray-950 rounded-lg min-h-60 relative isolate overflow-clip">

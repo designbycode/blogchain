@@ -30,6 +30,14 @@
                             Blog
                         </a>
                     </li>
+                    <li>
+                        <a wire:navigate
+                           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                           href="{{ route('trending-coins') }}"
+                        >
+                            Trending Coins
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
