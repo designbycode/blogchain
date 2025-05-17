@@ -37,6 +37,12 @@ class DashboardEditPost extends Component
         $this->live = $this->post->live;
     }
 
+    public function editorUpdated($field, $value): void
+    {
+        $this->{$field} = $value;
+    }
+
+
     public function rules(): array
     {
         return [
@@ -62,9 +68,7 @@ class DashboardEditPost extends Component
             'live' => $this->live,
         ]);
         $this->banner('Post updated successfully.');
-            
-//        $this->dispatch('toast', message: 'Post updated successfully.', type: 'success');
-//        $this->redirectRoute('dashboard.posts.index');
+
     }
 
 

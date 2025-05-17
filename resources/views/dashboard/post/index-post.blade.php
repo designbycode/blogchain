@@ -13,7 +13,7 @@
                         class="bg-white w-full pr-11 h-10 pl-3 py-2  placeholder:text-gray-400 text-gray-700 text-sm border border-gray-700/25 rounded
                         transition
                          duration-200 ease focus:outline-none focus:border-gray-400 hover:border-gray-400 shadow-sm focus:shadow-md"
-                        placeholder="Search for invoice..."
+                        placeholder="Search for posts..."
                     />
                     <button
                         class="absolute h-8 w-8 right-1 top-1 my-auto px-2 flex items-center bg-white rounded "

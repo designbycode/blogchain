@@ -14,7 +14,7 @@ window.axios = axios
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
 function tiptapEditor() {
-    Alpine.data('editor', (content) => {
+    Alpine.data('editor', (content, field) => {
         let editor
         return {
             value: content, // This is entangled with Livewire!

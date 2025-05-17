@@ -14,6 +14,24 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <style>
+        .tiptap-editor {
+            margin-bottom: 1rem;
+        }
+
+        .tiptap.ProseMirror {
+            min-height: 300px;
+            min-width: 100%;
+            background: transparent;
+            outline: none !important;
+        }
+
+        .tiptap.ProseMirror:focus {
+            /*border-color: red !important;*/
+        }
+
+    </style>
+
     <!-- Styles -->
     @livewireStyles
 </head>
