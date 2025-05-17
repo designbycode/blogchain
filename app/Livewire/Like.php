@@ -3,10 +3,12 @@
 namespace App\Livewire;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Component;
 
 class Like extends Component
 {
+    use InteractsWithBanner;
 
     public Model $model;
 
@@ -17,13 +19,14 @@ class Like extends Component
             $userId = auth()->user()->id;
             if (!$this->model->liked($userId)) {
                 $this->model->like($userId);
-                $this->dispatch('toast', message: class_basename($this->model) . ' liked successfully.', type: 'success');
+                $this->banner("You liked the post " . $this->model->title);
+
             } else {
                 $this->model->unlike($userId);
-                $this->dispatch('toast', message: class_basename($this->model) . ' unliked successfully.', type: 'success');
+                $this->warningBanner("You unliked the post " . $this->model->title);
             }
         } else {
-            $this->dispatch('toast', message: 'You need to be signed-in to be able to like post ' . $this->model->getTable(), type: 'info');
+            $this->dangerBanner('You are not logged in');
         }
     }
 

@@ -135,7 +135,7 @@
         </table>
 
         <div class="px-4 py-3">
-            {{ $posts->links() }}
+            {{ $posts->onEachSide(1)->links() }}
         </div>
     </div>
 

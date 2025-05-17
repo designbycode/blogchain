@@ -28,10 +28,11 @@
             <x-mint::form-textarea id="excerpt" rows="3" name="excerpt" wire:model="excerpt"></x-mint::form-textarea>
             <x-mint::form-error for="excerpt" />
         </x-mint::form-section>
-        
+
         <x-mint::form-section>
             <x-mint::form-label class="text-white" for="content">Content</x-mint::form-label>
             <x-mint::form-textarea id="content" rows="10" name="content" wire:model="content"></x-mint::form-textarea>
+
             <x-mint::form-error for="content" />
         </x-mint::form-section>
 

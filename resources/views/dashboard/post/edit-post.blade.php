@@ -29,11 +29,21 @@
             <x-mint::form-error for="excerpt" />
         </x-mint::form-section>
 
+
         <x-mint::form-section>
             <x-mint::form-label class="text-white" for="content">Content</x-mint::form-label>
-            <x-mint::form-textarea id="content" rows="10" name="content" wire:model="content"></x-mint::form-textarea>
+            {{--            <x-mint::form-textarea id="content" rows="3" name="content" wire:model="content"></x-mint::form-textarea>--}}
+
+
+            <div x-data="{content: $wire.entangle('content') }" class="relative">
+                <div contenteditable="true" class="w-full min-h-30 bg-white" x-html="content" id="content"></div>
+                <textarea class="w-full h-60" wire:ignore name="content" wire:model.live="content"></textarea>
+            </div>
+
+
             <x-mint::form-error for="content" />
         </x-mint::form-section>
+
 
         <x-mint::form-section>
             <div class="flex items-center space-x-3">
@@ -52,3 +62,9 @@
         </x-mint::form-section>
     </x-mint::form>
 </div>
+
+@script
+<script>
+    console.log($wire.entangle('content'))
+</script>
+@endscript
