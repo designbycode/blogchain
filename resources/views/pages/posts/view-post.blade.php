@@ -15,8 +15,8 @@
             </div>
         </div>
         <div class="col-span-2 relative">
-            <div class=" sticky top-12 z-0">
-                <livewire:component.joke-component />
+            <div class=" sticky top-12 z-0 bg-gray-800 rounded-md border border-gray-900 min-h-60">
+
             </div>
         </div>
 
