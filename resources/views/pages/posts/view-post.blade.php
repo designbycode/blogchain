@@ -1,13 +1,13 @@
 @php use Illuminate\Support\Str; @endphp
 <div>
     <div class="wrapper my-12 grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6 lg:gap-8">
-        <div class="col-span-4 space-y-4 ">
+        <div class="col-span-4 space-y-6 ">
             <div class="aspect-video ">
                 <img src="{{ Vite::asset('resources/img/crypto.jpeg') }}" class="bg-gray-800 rounded-lg drop-shadow-spread drop-shadow-gray-900 border
                 border-primary-500/75 aspect-video object-cover" alt="{{ $post->title }}" />
             </div>
 
-            <h1 class="text-3xl font-bold dark:text-white">
+            <h1 class="text-5xl font-bold dark:text-white">
                 {{ $post->title }}
             </h1>
             <div class="text-lg"><strong>In category</strong>: {{ $post->category->name }}</div>
@@ -15,7 +15,7 @@
                 <div class="flex items-center">
                     <img src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}"
                          class="size-8 rounded-full object-cover border-2 border-gray-900" />
-                    <a href="{{ route('profile.show', $post->user->id) }}"
+                    <a href="#"
                        class="text-gray-200 hover:text-gray-300 font-semibold ml-2">{{ $post->user->name }}</a>
                 </div>
             </div>
