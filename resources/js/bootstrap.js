@@ -1,21 +1,21 @@
-import axios from 'axios'
 import {
     Alpine,
     Livewire,
 } from '../../vendor/livewire/livewire/dist/livewire.esm'
-
 import { Editor } from '@tiptap/core'
 import StarterKit from '@tiptap/starter-kit'
 
 import.meta.glob(['../img/**/*.{webp,png,svg,jpeg,jpg}'])
 
-window.axios = axios
-
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+// window.axios = axios
+//
+// window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
 function tiptapEditor() {
-    Alpine.data('editor', (content, field) => {
+    Alpine.data('editor', (content) => {
         let editor
+        console.log(content)
+
         return {
             value: content, // This is entangled with Livewire!
             updatedAt: Date.now(),
@@ -34,9 +34,17 @@ function tiptapEditor() {
                         _this.updatedAt = Date.now()
                     },
                     onSelectionUpdate({ editor }) {
+                        console.log(editor.getHTML())
                         _this.updatedAt = Date.now()
                     },
                 })
+            },
+            setHTML(html) {
+                if (editor) {
+                    editor.commands.setContent(html, false) // false = don't emit new history step
+                    this.value = editor.getHTML()
+                    this.updatedAt = Date.now()
+                }
             },
             isLoaded() {
                 return editor

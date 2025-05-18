@@ -34,15 +34,10 @@
             <x-mint::form-label class="text-white" for="content">Content</x-mint::form-label>
             {{--            <x-mint::form-textarea id="content" rows="10" name="content" wire:model.live="content"></x-mint::form-textarea>--}}
 
-            <livewire:component.editor
-                {{--                field="content"--}}
-                {{--                :content="$post->content ?? ''"--}}
-                placeholder="Write your post content..."
-            />
+            <livewire:component.editor :content="$content" />
 
             <x-mint::form-error for="content" />
         </x-mint::form-section>
-
 
         <x-mint::form-section>
             <div class="flex items-center space-x-3">

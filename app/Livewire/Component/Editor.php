@@ -8,28 +8,14 @@ use Livewire\Component;
 class Editor extends Component
 {
 
-//    public string $field;  // The field name to bind to
-//    public string $content;
-//    public string $placeholder = 'Write something...';
-//    public string $editorId;
-//
-//    public function mount($field, $content = '', $placeholder = null): void
-//    {
-//        $this->field = $field;
-//        $this->content = $content;
-//        $this->placeholder = $placeholder ?? $this->placeholder;
-//        $this->editorId = 'editor-' . uniqid();
-//    }
-//
-//    public function updateContent($value): void
-//    {
-//        $this->content = $value;
-//        $this->dispatch('editor-updated',
-//            field: $this->field,
-//            content: $this->content
-//        );
-//    }
+    public string $content;
 
+
+    public function mount($content): void
+    {
+        $this->content = $content;
+
+    }
 
     public function render(): View
     {
