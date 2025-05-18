@@ -25,7 +25,7 @@
 
         <x-mint::form-section>
             <x-mint::form-label class="text-white" for="excerpt">Excerpt</x-mint::form-label>
-            <x-mint::form-textarea id="excerpt" rows="3" name="excerpt" wire:model="excerpt"></x-mint::form-textarea>
+            <x-mint::form-textarea :autoGrow="true" id="excerpt" rows="5" name="excerpt" wire:model="excerpt"></x-mint::form-textarea>
             <x-mint::form-error for="excerpt" />
         </x-mint::form-section>
 
@@ -47,7 +47,6 @@
             </div>
             <x-mint::form-error for="live" />
         </x-mint::form-section>
-
 
         <x-mint::form-section class="mt-4">
             <x-mint::button type="submit" wire:loading.attr="loading" variant="solid">Update Post</x-mint::button>

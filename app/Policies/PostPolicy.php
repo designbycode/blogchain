@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class PostPolicy
 {
@@ -13,7 +12,7 @@ class PostPolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        return $user->can('view any post');
     }
 
     /**
@@ -21,7 +20,7 @@ class PostPolicy
      */
     public function view(User $user, Post $post): bool
     {
-        return false;
+        return $user->can('view post') || $post->user_id === $user->id;
     }
 
     /**
@@ -29,7 +28,7 @@ class PostPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return $user->can('create post');
     }
 
     /**
@@ -37,7 +36,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post): bool
     {
-        return false;
+        return $user->can('update post') || $post->user_id === $user->id;
     }
 
     /**
@@ -45,7 +44,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post): bool
     {
-        return false;
+        return $user->can('delete post') || $post->user_id === $user->id;
     }
 
     /**
@@ -53,7 +52,7 @@ class PostPolicy
      */
     public function restore(User $user, Post $post): bool
     {
-        return false;
+        return $user->can('restore post');
     }
 
     /**
@@ -61,6 +60,6 @@ class PostPolicy
      */
     public function forceDelete(User $user, Post $post): bool
     {
-        return false;
+        return $user->can('force delete post');
     }
 }

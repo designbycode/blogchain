@@ -15,7 +15,7 @@ class IndexPost extends Component
     public function render(): View
     {
         return view('pages.posts.index-post', [
-            'posts' => Post::live()->with(['likes'])->latest()->simplePaginate(9),
+            'posts' => Post::live()->with(['likes', 'user'])->latest()->simplePaginate(9),
         ]);
     }
 }

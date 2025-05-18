@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Dashboard\Post;
+namespace App\Livewire\Dashboard\Posts;
 
 use App\Models\Category;
 use App\Models\Post;
@@ -57,6 +57,7 @@ class DashboardEditPost extends Component
 
     public function updatePost(): void
     {
+        $this->authorize('posts-update', $this->post);
         $this->resetErrorBag();
         $this->resetValidation();
         $validated = $this->validate();
@@ -64,7 +65,7 @@ class DashboardEditPost extends Component
         $post = $this->post->update([
             'title' => $this->title,
             'slug' => $this->slug,
-            'content' => preg_replace('/<(\w+)[^>]*>\s*<\/\1>/', '', $this->content),
+            'content' => preg_replace('/<(\w+)([^>]*)>\s*<\/\1>/', '', $this->content),
             'excerpt' => $this->excerpt,
             'category_id' => $this->category,
             'live' => $this->live,
@@ -76,6 +77,6 @@ class DashboardEditPost extends Component
 
     public function render(): View
     {
-        return view('dashboard.post.edit-post');
+        return view('dashboard.posts.edit-post');
     }
 }

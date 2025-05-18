@@ -1,6 +1,6 @@
 @props([
     "userId" => auth()->user()->id,
-    "post",
+    "posts",
 ])
 
 <button class=" flex items-center space-x-0.5" wire:click="likePost({{ $post->id }})">

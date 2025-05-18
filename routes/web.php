@@ -1,9 +1,9 @@
 <?php
 
 
-use App\Livewire\Dashboard\Post\DashboardCreatePost;
-use App\Livewire\Dashboard\Post\DashboardEditPost;
-use App\Livewire\Dashboard\Post\DashboardIndexPost;
+use App\Livewire\Dashboard\Posts\DashboardCreatePost;
+use App\Livewire\Dashboard\Posts\DashboardEditPost;
+use App\Livewire\Dashboard\Posts\DashboardIndexPost;
 use App\Livewire\Pages\HomePage;
 use App\Livewire\Pages\Posts\IndexPost;
 use App\Livewire\Pages\Posts\ViewPost;

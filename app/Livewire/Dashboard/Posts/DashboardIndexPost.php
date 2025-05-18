@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Dashboard\Post;
+namespace App\Livewire\Dashboard\Posts;
 
 use App\Models\Post;
 use Illuminate\View\View;
@@ -23,10 +23,11 @@ class DashboardIndexPost extends Component
     public function deletePost($postId): void
     {
 
-        // Find the post
+        // Find the posts
         $post = Post::findOrFail($postId);
+        $this->authorize('posts-update', $post);
 
-        // Delete the post
+        // Delete the posts
         $post->delete();
         $this->dangerBanner('Post deleted successfully.');
 
@@ -37,7 +38,7 @@ class DashboardIndexPost extends Component
         $posts = auth()->user()->posts()->with('likes')->where('title', 'like', '%' . $this->search . '%')
             ->paginate(10);
 
-        return view('dashboard.post.index-post', [
+        return view('dashboard.posts.index-post', [
             'posts' => $posts,
         ]);
     }

@@ -19,11 +19,11 @@ class Like extends Component
             $userId = auth()->user()->id;
             if (!$this->model->liked($userId)) {
                 $this->model->like($userId);
-                $this->banner("You liked the post " . $this->model->title);
+                $this->banner("You liked the posts " . $this->model->title);
 
             } else {
                 $this->model->unlike($userId);
-                $this->warningBanner("You unliked the post " . $this->model->title);
+                $this->warningBanner("You unliked the posts " . $this->model->title);
             }
         } else {
             $this->dangerBanner('You are not logged in');

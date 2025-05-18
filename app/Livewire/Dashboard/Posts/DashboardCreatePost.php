@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Dashboard\Post;
+namespace App\Livewire\Dashboard\Posts;
 
 use App\Models\Category;
 use Illuminate\Support\Collection;
@@ -47,6 +47,7 @@ class DashboardCreatePost extends Component
 
     public function createPost(): void
     {
+        $this->authorize('posts-create');
         $this->resetErrorBag();
         $this->resetValidation();
         $validated = $this->validate();
@@ -54,7 +55,7 @@ class DashboardCreatePost extends Component
         $post = auth()->user()->posts()->create([
             'title' => $this->title,
             'slug' => $this->slug,
-            'content' => preg_replace('/<(\w+)[^>]*>\s*<\/\1>/', '', $this->content),
+            'content' => preg_replace('/<(\w+)([^>]*)>\s*<\/\1>/', '', $this->content),
             'excerpt' => $this->excerpt,
             'category_id' => $this->category,
             'live' => $this->live,
@@ -68,6 +69,6 @@ class DashboardCreatePost extends Component
 
     public function render(): View
     {
-        return view('dashboard.post.create-post');
+        return view('dashboard.posts.create-post');
     }
 }

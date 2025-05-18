@@ -33,7 +33,7 @@ return [
     | Layout
     |---------------------------------------------------------------------------
     | The view that will be used as the layout when rendering a single component
-    | as an entire page via `Route::get('/post/create', DashboardCreatePost::class);`.
+    | as an entire page via `Route::get('/posts/create', DashboardCreatePost::class);`.
     | In this case, the view returned by DashboardCreatePost will render into $slot.
     |
     */

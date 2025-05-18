@@ -1,4 +1,4 @@
-<button class=" flex items-center space-x-0.5" wire:click="likeModel({{ $model->id }})">
+<button class=" flex items-center space-x-1" wire:click="likeModel({{ $model->id }})">
     @if(auth()->check() && $model->liked(auth()->user()->id))
         <svg data xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5
                                 text-red-500">

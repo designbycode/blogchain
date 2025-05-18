@@ -19,11 +19,11 @@ class RolesPermissionsSeeder extends Seeder
 
         // Create permissions for posts
         $permissions = [
-            'post-view',
-            'post-create',
-            'post-edit',
-            'post-update',
-            'post-delete',
+            'posts-view',
+            'posts-create',
+            'posts-edit',
+            'posts-update',
+            'posts-delete',
 
             'category-view',
             'category-create',
@@ -45,14 +45,14 @@ class RolesPermissionsSeeder extends Seeder
 
         $roleModerator = Role::create(['name' => 'moderator']);
         $roleModerator->givePermissionTo([
-            'post-view',
-            'post-edit',
-            'post-update',
+            'posts-view',
+            'posts-edit',
+            'posts-update',
         ]);
 
         $roleGuest = Role::create(['name' => 'guest']);
         $roleGuest->givePermissionTo([
-            'post-view',
+            'posts-view',
         ]);
     }
 }
