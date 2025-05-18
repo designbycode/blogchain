@@ -4,6 +4,7 @@ namespace App\Livewire\Dashboard\Post;
 
 use App\Models\Post;
 use Illuminate\View\View;
+use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -14,7 +15,7 @@ use Livewire\WithPagination;
 class DashboardIndexPost extends Component
 {
 
-    use WithPagination;
+    use WithPagination, InteractsWithBanner;
 
     #[Url]
     public string $search = '';
@@ -27,8 +28,8 @@ class DashboardIndexPost extends Component
 
         // Delete the post
         $post->delete();
+        $this->dangerBanner('Post deleted successfully.');
 
-        $this->dispatch('toast', message: 'Post deleted successfully.', type: 'success');
     }
 
     public function render(): View

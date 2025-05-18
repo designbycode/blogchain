@@ -7,6 +7,7 @@ use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 
@@ -38,6 +39,12 @@ class DashboardCreatePost extends Component
         ];
     }
 
+    #[On('content-updated')]
+    public function dataFromEditor($value): void
+    {
+        $this->content = $value;
+    }
+
     public function createPost(): void
     {
         $this->resetErrorBag();
@@ -47,15 +54,15 @@ class DashboardCreatePost extends Component
         $post = auth()->user()->posts()->create([
             'title' => $this->title,
             'slug' => $this->slug,
-            'content' => $this->content,
+            'content' => preg_replace('/<(\w+)[^>]*>\s*<\/\1>/', '', $this->content),
             'excerpt' => $this->excerpt,
             'category_id' => $this->category,
             'live' => $this->live,
         ]);
 
-//        $this->dispatch('toast', message: 'Post created successfully.', type: 'success');
+
         $this->banner('Post created successfully.');
-        sleep(3);
+
         $this->redirectRoute('dashboard.posts.edit', $post);
     }
 

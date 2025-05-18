@@ -10,7 +10,16 @@
             <h1 class="text-3xl font-bold dark:text-white">
                 {{ $post->title }}
             </h1>
-            <div class="prose dark:prose-invert w-full min-w-full ">
+            <div class="text-lg"><strong>In category</strong>: {{ $post->category->name }}</div>
+            <div class="flex bg-gray-800/25 rounded-lg p-2">
+                <div class="flex items-center">
+                    <img src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}"
+                         class="size-8 rounded-full object-cover border-2 border-gray-900" />
+                    <a href="{{ route('profile.show', $post->user->id) }}"
+                       class="text-gray-200 hover:text-gray-300 font-semibold ml-2">{{ $post->user->name }}</a>
+                </div>
+            </div>
+            <div class="w-full min-w-full prose md:prose-xl dark:prose-invert ">
                 {!! Str::markdown($post->content ) !!}
             </div>
         </div>

@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
             RolesPermissionsSeeder::class,
             CategorySeeder::class,
-            PostSeeder::class,
+//            PostSeeder::class,
         ]);
 
         $user = User::factory()->create([

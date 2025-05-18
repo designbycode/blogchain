@@ -8,6 +8,7 @@ use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 
@@ -48,6 +49,12 @@ class DashboardEditPost extends Component
         ];
     }
 
+    #[On('content-updated')]
+    public function dataFromEditor($value): void
+    {
+        $this->content = $value;
+    }
+
     public function updatePost(): void
     {
         $this->resetErrorBag();
@@ -57,7 +64,7 @@ class DashboardEditPost extends Component
         $post = $this->post->update([
             'title' => $this->title,
             'slug' => $this->slug,
-            'content' => $this->content,
+            'content' => preg_replace('/<(\w+)[^>]*>\s*<\/\1>/', '', $this->content),
             'excerpt' => $this->excerpt,
             'category_id' => $this->category,
             'live' => $this->live,

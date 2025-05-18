@@ -32,10 +32,7 @@
 
         <x-mint::form-section>
             <x-mint::form-label class="text-white" for="content">Content</x-mint::form-label>
-            {{--            <x-mint::form-textarea id="content" rows="10" name="content" wire:model.live="content"></x-mint::form-textarea>--}}
-
             <livewire:component.editor :content="$content" />
-
             <x-mint::form-error for="content" />
         </x-mint::form-section>
 
@@ -51,14 +48,9 @@
             <x-mint::form-error for="live" />
         </x-mint::form-section>
 
+
         <x-mint::form-section class="mt-4">
             <x-mint::button type="submit" wire:loading.attr="loading" variant="solid">Update Post</x-mint::button>
         </x-mint::form-section>
     </x-mint::form>
 </div>
-
-@script
-<script>
-    console.log($wire.entangle('content'))
-</script>
-@endscript

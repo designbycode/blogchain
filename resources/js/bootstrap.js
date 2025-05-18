@@ -14,43 +14,36 @@ import.meta.glob(['../img/**/*.{webp,png,svg,jpeg,jpg}'])
 function tiptapEditor() {
     Alpine.data('editor', (content) => {
         let editor
-        console.log(content)
-
         return {
-            value: content, // This is entangled with Livewire!
+            value: content,
             updatedAt: Date.now(),
             init() {
-                const _this = this
+                const self = this
                 editor = new Editor({
                     element: this.$refs.element,
                     extensions: [StarterKit],
                     content: this.value,
                     onCreate({ editor }) {
-                        _this.value = editor.getHTML()
-                        _this.updatedAt = Date.now()
+                        self.value = editor.getHTML()
+                        self.updatedAt = Date.now()
                     },
                     onUpdate({ editor }) {
-                        _this.value = editor.getHTML() // This updates Livewire!
-                        _this.updatedAt = Date.now()
+                        self.value = editor.getHTML()
+                        self.updatedAt = Date.now()
+                        self.$wire.set('content', self.value)
+                        console.log(self.value)
                     },
                     onSelectionUpdate({ editor }) {
-                        console.log(editor.getHTML())
-                        _this.updatedAt = Date.now()
+                        self.updatedAt = Date.now()
                     },
                 })
             },
-            setHTML(html) {
-                if (editor) {
-                    editor.commands.setContent(html, false) // false = don't emit new history step
-                    this.value = editor.getHTML()
-                    this.updatedAt = Date.now()
-                }
-            },
+
             isLoaded() {
-                return editor
+                return editor !== undefined
             },
             isActive(type, opts = {}) {
-                return editor.isActive(type, opts)
+                return editor?.isActive?.(type, opts) ?? false
             },
             toggleHeading(opts) {
                 editor.chain().toggleHeading(opts).focus().run()
@@ -59,7 +52,40 @@ function tiptapEditor() {
                 editor.chain().focus().toggleBold().run()
             },
             toggleItalic() {
-                editor.chain().toggleItalic().focus().run()
+                editor.chain().focus().toggleItalic().run()
+            },
+            toggleStrike() {
+                editor.chain().focus().toggleStrike().run()
+            },
+            toggleCode() {
+                editor.chain().focus().toggleCode().run()
+            },
+            toggleParagraph() {
+                editor.chain().focus().setParagraph().run()
+            },
+            toggleBlockquote() {
+                editor.chain().focus().toggleBlockquote().run()
+            },
+            toggleBulletList() {
+                editor.chain().focus().toggleBulletList().run()
+            },
+            toggleOrderedList() {
+                editor.chain().focus().toggleOrderedList().run()
+            },
+            toggleCodeBlock() {
+                editor.chain().focus().toggleCodeBlock().run()
+            },
+            setHorizontalRule() {
+                editor.chain().focus().setHorizontalRule().run()
+            },
+            setHardBreak() {
+                editor.chain().focus().setHardBreak().run()
+            },
+            undo() {
+                editor.chain().focus().undo().run()
+            },
+            redo() {
+                editor.chain().focus().redo().run()
             },
         }
     })

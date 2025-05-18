@@ -14,7 +14,11 @@ class Editor extends Component
     public function mount($content): void
     {
         $this->content = $content;
+    }
 
+    public function updatedContent($value): void
+    {
+        $this->dispatch('content-updated', $value);
     }
 
     public function render(): View

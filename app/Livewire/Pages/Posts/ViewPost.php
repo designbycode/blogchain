@@ -11,8 +11,11 @@ class ViewPost extends Component
 
     public Post $post;
 
+
     public function render(): View
     {
-        return view('pages.posts.view-post');
+        return view('pages.posts.view-post', [
+            'post' => $this->post->load('user', 'category'),
+        ]);
     }
 }
