@@ -31,7 +31,6 @@ function tiptapEditor() {
                         self.value = editor.getHTML()
                         self.updatedAt = Date.now()
                         self.$wire.set('content', self.value)
-                        console.log(self.value)
                     },
                     onSelectionUpdate({ editor }) {
                         self.updatedAt = Date.now()

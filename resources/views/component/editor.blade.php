@@ -1,6 +1,5 @@
 <div class="relative isolate">
     <div wire:ignore x-data="editor(@js($content))" class="bg-gray-700 border border-gray-500 rounded-md p-1">
-        <div x-text="updatedAt"></div>
         <template x-if="isLoaded()">
             <div class="menu flex justify-between gap-2 mb-2 p-2 bg-gradient-to-b from-gray-900/15 shadow-md bg-gray-800 rounded-md sticky z-10 top-1">
                 <div class="flex space-x-1">
