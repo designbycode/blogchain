@@ -4,9 +4,16 @@
 
 <div {{ $attributes->merge(['class' => 'bg-gray-950 rounded-lg p-4 flex flex-col hover:scale-105 shadow-md hover:shadow-lg transition duration-300']) }}>
     <a wire:navigate href="{{ route('posts.show', $post) }}">
-        <img class="aspect-video bg-gray-800 rounded-lg drop-shadow-spread drop-shadow-gray-900 -translate-y-8 border border-primary-500/75"
-             src="https://picsum.photos/id/{{$post->id}}/400/260"
-             alt="{{ $post->title }}">
+        <div class="aspect-video">
+
+            <img src="{{ $post->getFirstMediaUrl('posts', 'card') }}"
+                 class="aspect-video bg-gray-800 w-full rounded-lg object-cover drop-shadow-spread drop-shadow-gray-900 -translate-y-8 border
+                 border-primary-500/75"
+                 alt="{{ $post->title }}" />
+
+        </div>
+
+
     </a>
     <div class="flex-1">
         <a wire:navigate href="{{ route('posts.show', $post) }}" class="font-semibold -mt-5 line-clamp-2">

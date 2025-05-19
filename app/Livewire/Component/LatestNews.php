@@ -13,7 +13,7 @@ class LatestNews extends Component
     public function render(): View
     {
         return view('component.latest-news', [
-            'posts' => Post::live()->with(['likes'])->latest()->take(3)->get(),
+            'posts' => Post::live()->with(['likes', 'user', 'category', 'media'])->latest()->take(3)->get(),
         ]);
     }
 }

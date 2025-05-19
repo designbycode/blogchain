@@ -4,6 +4,20 @@
     </div>
 
     <x-mint::form class="bg-gray-800 rounded-lg p-6 shadow-md" wire:submit.prevent="createPost" method="post">
+
+        <x-mint::form-section>
+            <x-mint::form-label class="text-white" for="image">Image</x-mint::form-label>
+            @if(($image && method_exists($image, 'temporaryUrl')))
+                <img
+                    src="{{ $image->temporaryUrl() }}"
+                    class="w-1/2 mx-auto mb-4 aspect-video rounded-md"
+                    alt=""
+                >
+            @endif
+            <input class="bg-white p-4 rounded-md" type="file" accept="image/png,image/jpg" id="image" name="image" wire:model="image" />
+            <x-mint::form-error for="image" />
+        </x-mint::form-section>
+
         <x-mint::form-section>
             <x-mint::form-label class="text-white" for="title">Title</x-mint::form-label>
             <x-mint::form-input id="title" name="title" wire:model="title"></x-mint::form-input>

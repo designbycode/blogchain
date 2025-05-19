@@ -15,7 +15,7 @@ class ViewPost extends Component
     public function render(): View
     {
         return view('pages.posts.view-post', [
-            'post' => $this->post->load('user', 'category'),
+            'post' => $this->post->load('user', 'category', 'media', 'likes', 'tags'),
         ]);
     }
 }

@@ -4,19 +4,23 @@ namespace App\Livewire\Dashboard\Posts;
 
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
 
 #[Layout('layouts.app')]
 class DashboardEditPost extends Component
 {
 
-    use InteractsWithBanner;
+    use InteractsWithBanner, WithFileUploads;
 
     public Post $post;
     public string $title = '';
@@ -25,6 +29,7 @@ class DashboardEditPost extends Component
     public string $excerpt = '';
     public string $category = '';
     public array $tags = [];
+    public $image = null;
     public bool $live = false;
     public Collection $categories;
 
@@ -38,6 +43,7 @@ class DashboardEditPost extends Component
         $this->excerpt = $this->post->excerpt;
         $this->category = $this->post->category->id;
         $this->live = $this->post->live;
+
         $this->tags = $this->post->tags->pluck('name')->toArray();
     }
 
@@ -53,6 +59,7 @@ class DashboardEditPost extends Component
             'excerpt' => 'required|string',
             'category' => 'required|exists:categories,id',
             'tags' => 'array|nullable',
+            'image' => 'nullable|sometimes|image|max:2024',
         ];
     }
 
@@ -72,6 +79,11 @@ class DashboardEditPost extends Component
         $this->tags = array_values(array_unique($tags));
     }
 
+    /**
+     * @throws AuthorizationException
+     * @throws FileDoesNotExist
+     * @throws FileIsTooBig
+     */
     public function updatePost(): void
     {
 
@@ -80,6 +92,14 @@ class DashboardEditPost extends Component
         $this->resetErrorBag();
         $this->resetValidation();
         $validated = $this->validate();
+
+
+        if ($this->image) {
+            $this->post->addMedia($this->image)
+                ->preservingOriginal()
+                ->toMediaCollection('posts');
+        }
+
 
         $post = $this->post->update([
             'title' => $this->title,

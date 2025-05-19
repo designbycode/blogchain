@@ -5,6 +5,32 @@
 
     <x-mint::form class="bg-gray-800 rounded-lg p-6 shadow-md" wire:submit.prevent="updatePost" method="post">
         <x-mint::form-section>
+            <x-mint::form-label class="text-white" for="image">Image</x-mint::form-label>
+            @if(($image && method_exists($image, 'temporaryUrl')) || $post->getFirstMediaUrl('posts'))
+                <img
+                    src="{{ $image && method_exists($image, 'temporaryUrl') ? $image->temporaryUrl() : $post->getFirstMediaUrl('posts') }}"
+                    class="w-1/2 mx-auto mb-4 aspect-video rounded-md object-cover"
+                    alt="temp image"
+                >
+            @endif
+            <div
+                class="w-full"
+                x-data="{ uploading: false, progress: 0 }"
+                x-on:livewire-upload-start="uploading = true"
+                x-on:livewire-upload-finish="uploading = false"
+                x-on:livewire-upload-cancel="uploading = false"
+                x-on:livewire-upload-error="uploading = false"
+                x-on:livewire-upload-progress="progress = $event.detail.progress"
+            >
+                <input class="bg-white p-4 w-full rounded-md" type="file" accept="image/png,image/jpg" id="image" name="image" wire:model="image" />
+                <div x-show="uploading">
+                    <progress class="w-full my-2" max="100" x-bind:value="progress"></progress>
+                </div>
+            </div>
+            <x-mint::form-error for="image" />
+        </x-mint::form-section>
+
+        <x-mint::form-section>
             <x-mint::form-label class="text-white" for="title">Title</x-mint::form-label>
             <x-mint::form-input id="title" name="title" wire:model="title"></x-mint::form-input>
             <x-mint::form-error for="title" />

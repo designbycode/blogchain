@@ -9,12 +9,13 @@ use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 
 #[Layout('layouts.app')]
 class DashboardCreatePost extends Component
 {
-    use InteractsWithBanner;
+    use InteractsWithBanner, WithFileUploads;
 
     public string $title = '';
     public string $slug = '';
@@ -23,6 +24,7 @@ class DashboardCreatePost extends Component
     public string $category = '';
     public array $tags = [];
     public bool $live = false;
+    public $image = null;
     public Collection $categories;
 
     public function mount(): void
@@ -38,6 +40,7 @@ class DashboardCreatePost extends Component
             'excerpt' => 'required|string',
             'category' => 'required|exists:categories,id',
             'tags' => 'array|nullable',
+            'image' => 'nullable|sometimes|image|max:2024',
         ];
     }
 
@@ -67,7 +70,15 @@ class DashboardCreatePost extends Component
             'excerpt' => $this->excerpt,
             'category_id' => $this->category,
             'live' => $this->live,
+            'image' => 'nullable|sometimes|image|max:2024',
         ]);
+
+        if ($this->image) {
+            $post->addMedia($this->image)
+                ->preservingOriginal()
+                ->toMediaCollection('posts');
+        }
+
 
         $post->syncTagsWithType($this->tags, 'posts');
 
