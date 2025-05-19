@@ -23,7 +23,7 @@ class TagInput extends Component
     {
         $input = $this->tag;
         $newTags = collect(explode(',', $input))
-            ->map(fn($tag) => trim($tag))
+            ->map(fn($tag) => $this->cleanTag($tag))
             ->filter()
             ->unique()
             ->toArray();
@@ -39,13 +39,21 @@ class TagInput extends Component
         $this->tag = '';
     }
 
+    /**
+     * Clean tag: lowercase and reduce spaces to max one between words
+     */
+    protected function cleanTag(string $tag): string
+    {
+        // Lowercase, trim, and replace multiple spaces with a single space
+        return preg_replace('/\s+/', ' ', trim(mb_strtolower($tag)));
+    }
+
     public function removeTag($index): void
     {
         unset($this->tags[$index]);
         $this->tags = array_values($this->tags); // reindex
         $this->dispatch('tags-updated', $this->tags);
     }
-
 
     public function render(): View
     {
