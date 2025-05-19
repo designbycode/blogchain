@@ -24,6 +24,11 @@
         </x-mint::form-section>
 
         <x-mint::form-section>
+            <x-mint::form-label class="text-white" for="category">Tags</x-mint::form-label>
+            <livewire:component.tag-input :tags="$tags" />
+        </x-mint::form-section>
+
+        <x-mint::form-section>
             <x-mint::form-label class="text-white" for="excerpt">Excerpt</x-mint::form-label>
             <x-mint::form-textarea :autoGrow="true" id="excerpt" rows="5" name="excerpt" wire:model="excerpt"></x-mint::form-textarea>
             <x-mint::form-error for="excerpt" />

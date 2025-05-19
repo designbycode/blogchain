@@ -4,6 +4,8 @@ import {
 } from '../../vendor/livewire/livewire/dist/livewire.esm'
 import { Editor } from '@tiptap/core'
 import StarterKit from '@tiptap/starter-kit'
+import { Link } from '@tiptap/extension-link'
+import { Image } from '@tiptap/extension-image'
 
 import.meta.glob(['../img/**/*.{webp,png,svg,jpeg,jpg}'])
 
@@ -21,7 +23,13 @@ function tiptapEditor() {
                 const self = this
                 editor = new Editor({
                     element: this.$refs.element,
-                    extensions: [StarterKit],
+                    extensions: [
+                        StarterKit,
+                        Link.configure({
+                            openOnClick: false,
+                        }),
+                        Image,
+                    ],
                     content: this.value,
                     onCreate({ editor }) {
                         self.value = editor.getHTML()
@@ -85,6 +93,22 @@ function tiptapEditor() {
             },
             redo() {
                 editor.chain().focus().redo().run()
+            },
+
+            addLink() {
+                // Prompt for URL and text
+                const url = prompt('Enter the URL')
+                if (!url) return
+                const text = prompt('Enter the link text')
+                if (!text) return
+                // Insert link at current selection or at the end if selection is empty
+                editor
+                    .chain()
+                    .focus()
+                    .insertContent(
+                        `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`
+                    )
+                    .run()
             },
         }
     })

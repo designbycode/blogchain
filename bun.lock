@@ -5,6 +5,8 @@
       "dependencies": {
         "@tiptap/core": "^3.0.0",
         "@tiptap/extension-highlight": "^2.12.0",
+        "@tiptap/extension-image": "^2.12.0",
+        "@tiptap/extension-link": "^2.12.0",
         "@tiptap/extension-strike": "^2.12.0",
         "@tiptap/extension-underline": "^2.12.0",
         "@tiptap/pm": "^3.0.0",
@@ -198,7 +200,11 @@
 
     "@tiptap/extension-horizontal-rule": ["@tiptap/extension-horizontal-rule@3.0.0", "", { "peerDependencies": { "@tiptap/core": "^3.0.0", "@tiptap/pm": "^3.0.0" } }, "sha512-jDVz4J+Nq10EkSfZmKwqUzSI39gQCb1Le/phXb3+y7I8pt63UD8tjS3LmA7Gh1nqHqifEKZnDOSjCFJasYG5Mg=="],
 
+    "@tiptap/extension-image": ["@tiptap/extension-image@2.12.0", "", { "peerDependencies": { "@tiptap/core": "^2.7.0" } }, "sha512-wO+yrfMlnW3SYCb1Q1qAb+nt5WH6jnlQPTV6qdoIabRtW0puwMWULZDUgclPN5hxn8EXb9vBEu44egvH6hgkfQ=="],
+
     "@tiptap/extension-italic": ["@tiptap/extension-italic@3.0.0", "", { "peerDependencies": { "@tiptap/core": "^3.0.0" } }, "sha512-LH8VsTYsJb2DINzGOX12JXmWXGZbS18cSRwGT7yPhov/3+tIKTJA51B/NTv6zQFEFd4Ymi5l89vqVM33IL87FQ=="],
+
+    "@tiptap/extension-link": ["@tiptap/extension-link@2.12.0", "", { "dependencies": { "linkifyjs": "^4.2.0" }, "peerDependencies": { "@tiptap/core": "^2.7.0", "@tiptap/pm": "^2.7.0" } }, "sha512-N6f78F2onvcL8FAwFOJexOF02UwGETLjQ7cCguhBe/w7vtx7aX8/f+IlaSGY/pIcWyEQpoC28ciM0+QsrJRr1A=="],
 
     "@tiptap/extension-list-item": ["@tiptap/extension-list-item@3.0.0", "", { "peerDependencies": { "@tiptap/core": "^3.0.0" } }, "sha512-5/3ZaEpFWxFig4OKLwmVlmmbdQgvB8FFMdLspTiNtfIjMio+SMy6wtDDi4mREA38sjr1zzbA/li6X/XJNj1+Wg=="],
 
@@ -337,6 +343,8 @@
     "lightningcss-win32-x64-msvc": ["lightningcss-win32-x64-msvc@1.29.2", "", { "os": "win32", "cpu": "x64" }, "sha512-EdIUW3B2vLuHmv7urfzMI/h2fmlnOQBk1xlsDxkN1tCWKjNFjfLhGxYk8C8mzpSfr+A6jFFIi8fU6LbQGsRWjA=="],
 
     "linkify-it": ["linkify-it@5.0.0", "", { "dependencies": { "uc.micro": "^2.0.0" } }, "sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ=="],
+
+    "linkifyjs": ["linkifyjs@4.3.1", "", {}, "sha512-DRSlB9DKVW04c4SUdGvKK5FR6be45lTU9M76JnngqPeeGDqPwYc0zdUErtsNVMtxPXgUWV4HbXbnC4sNyBxkYg=="],
 
     "lodash": ["lodash@4.17.21", "", {}, "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="],
 

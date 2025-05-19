@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Tags\HasTags;
 
 class Post extends Model
 {
     /** @use HasFactory<PostFactory> */
-    use HasFactory, SoftDeletes, Likeable, Live;
+    use HasFactory, SoftDeletes, Likeable, Live, HasTags;
 
     protected $fillable = [
         'title',

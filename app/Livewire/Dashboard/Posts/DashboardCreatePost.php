@@ -21,6 +21,7 @@ class DashboardCreatePost extends Component
     public string $content = '';
     public string $excerpt = '';
     public string $category = '';
+    public array $tags = [];
     public bool $live = false;
     public Collection $categories;
 
@@ -36,6 +37,7 @@ class DashboardCreatePost extends Component
             'content' => 'required|string',
             'excerpt' => 'required|string',
             'category' => 'required|exists:categories,id',
+            'tags' => 'array|nullable',
         ];
     }
 
@@ -43,6 +45,12 @@ class DashboardCreatePost extends Component
     public function dataFromEditor($value): void
     {
         $this->content = $value;
+    }
+
+    #[On('tags-updated')]
+    public function handleTagsUpdated($tags): void
+    {
+        $this->tags = array_values(array_unique($tags));
     }
 
     public function createPost(): void
@@ -60,6 +68,8 @@ class DashboardCreatePost extends Component
             'category_id' => $this->category,
             'live' => $this->live,
         ]);
+
+        $post->syncTagsWithType($this->tags, 'posts');
 
 
         $this->banner('Post created successfully.');

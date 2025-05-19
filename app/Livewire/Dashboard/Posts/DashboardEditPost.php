@@ -24,8 +24,10 @@ class DashboardEditPost extends Component
     public string $content = '';
     public string $excerpt = '';
     public string $category = '';
+    public array $tags = [];
     public bool $live = false;
     public Collection $categories;
+
 
     public function mount(): void
     {
@@ -36,9 +38,13 @@ class DashboardEditPost extends Component
         $this->excerpt = $this->post->excerpt;
         $this->category = $this->post->category->id;
         $this->live = $this->post->live;
+        $this->tags = $this->post->tags->pluck('name')->toArray();
     }
 
 
+    /**
+     * @return array{title: string, content: string, excerpt: string, category: string, tags: string}
+     */
     public function rules(): array
     {
         return [
@@ -46,17 +52,30 @@ class DashboardEditPost extends Component
             'content' => 'required|string',
             'excerpt' => 'required|string',
             'category' => 'required|exists:categories,id',
+            'tags' => 'array|nullable',
         ];
     }
 
+    /**
+     * @param $value
+     * @return void
+     */
     #[On('content-updated')]
     public function dataFromEditor($value): void
     {
         $this->content = $value;
     }
 
+    #[On('tags-updated')]
+    public function handleTagsUpdated($tags): void
+    {
+        $this->tags = array_values(array_unique($tags));
+    }
+
     public function updatePost(): void
     {
+
+
         $this->authorize('posts-update', $this->post);
         $this->resetErrorBag();
         $this->resetValidation();
@@ -70,8 +89,11 @@ class DashboardEditPost extends Component
             'category_id' => $this->category,
             'live' => $this->live,
         ]);
-        $this->banner('Post updated successfully.');
 
+
+        $this->post->syncTagsWithType($this->tags, 'posts');
+
+        $this->banner('Post updated successfully.');
     }
 
 

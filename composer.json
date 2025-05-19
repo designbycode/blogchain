@@ -14,7 +14,8 @@
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.0",
         "rtconner/laravel-likeable": "^3.2",
-        "spatie/laravel-permission": "^6.18"
+        "spatie/laravel-permission": "^6.18",
+        "spatie/laravel-tags": "^4.10"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",
