@@ -4,31 +4,23 @@
     </div>
 
     <x-mint::form class="bg-gray-800 rounded-lg p-6 shadow-md" wire:submit.prevent="updatePost" method="post">
-        <x-mint::form-section>
-            <x-mint::form-label class="text-white" for="image">Image</x-mint::form-label>
-            @if(($image && method_exists($image, 'temporaryUrl')) || $post->getFirstMediaUrl('posts'))
-                <img
-                    src="{{ $image && method_exists($image, 'temporaryUrl') ? $image->temporaryUrl() : $post->getFirstMediaUrl('posts') }}"
-                    class="w-1/2 mx-auto mb-4 aspect-video rounded-md object-cover"
-                    alt="temp image"
-                >
-            @endif
-            <div
-                class="w-full"
-                x-data="{ uploading: false, progress: 0 }"
-                x-on:livewire-upload-start="uploading = true"
-                x-on:livewire-upload-finish="uploading = false"
-                x-on:livewire-upload-cancel="uploading = false"
-                x-on:livewire-upload-error="uploading = false"
-                x-on:livewire-upload-progress="progress = $event.detail.progress"
-            >
-                <input class="bg-white p-4 w-full rounded-md" type="file" accept="image/png,image/jpg" id="image" name="image" wire:model="image" />
-                <div x-show="uploading">
-                    <progress class="w-full my-2" max="100" x-bind:value="progress"></progress>
-                </div>
+        @if($post->hasMedia('posts'))
+
+            <div class="relative grid place-content-center p-6 rounded-md bg-gray-700">
+                <button @click="$wire.deleteImage()" class="bg-red-500 absolute top-5 right-5 size-10 rounded-full grid place-content-center text-white
+                shadow-2xs shadow-black/75">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+
+                    <span class="sr-only">Delete</span>
+                </button>
+                <img width="400" height="250" class="rounded-md aspect-3/2 " src="{{ $post->getFirstMediaUrl("posts", 'card') }}" alt="image">
             </div>
-            <x-mint::form-error for="image" />
-        </x-mint::form-section>
+        @else
+            <x-file-pond wire:model="image" />
+        @endif
+
 
         <x-mint::form-section>
             <x-mint::form-label class="text-white" for="title">Title</x-mint::form-label>

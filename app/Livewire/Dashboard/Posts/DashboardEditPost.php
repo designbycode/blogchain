@@ -43,7 +43,7 @@ class DashboardEditPost extends Component
         $this->excerpt = $this->post->excerpt;
         $this->category = $this->post->category->id;
         $this->live = $this->post->live;
-
+        $this->image = null;
         $this->tags = $this->post->tags->pluck('name')->toArray();
     }
 
@@ -77,6 +77,16 @@ class DashboardEditPost extends Component
     public function handleTagsUpdated($tags): void
     {
         $this->tags = array_values(array_unique($tags));
+    }
+
+    public function deleteImage(): void
+    {
+        $media = $this->post->getFirstMedia('posts');
+        if ($media) {
+            $media->delete();
+            $this->image = $this->post->getFirstMediaUrl('posts');
+            $this->post->refresh();
+        }
     }
 
     /**
