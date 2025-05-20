@@ -1,8 +1,12 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-BorwHadd.css",
+    "file": "assets/app-CZXoHmu6.css",
     "src": "resources/css/app.css",
     "isEntry": true
+  },
+  "resources/img/ad.png": {
+    "file": "assets/ad-DzzLwxCU.png",
+    "src": "resources/img/ad.png"
   },
   "resources/img/bg.jpg": {
     "file": "assets/bg-DybVqxbB.jpg",
