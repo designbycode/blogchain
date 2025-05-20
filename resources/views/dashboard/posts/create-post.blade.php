@@ -14,7 +14,10 @@
                     alt=""
                 >
             @endif
-            <input class="bg-white p-4 rounded-md" type="file" accept="image/png,image/jpg" id="image" name="image" wire:model="image" />
+            <label class="bg-gray-800 rounded-md p-6 min-h-32 w-full">
+
+                <input class="bg-white p-4 rounded-md" type="file" accept="image/png,image/jpg" id="image" name="image" wire:model="image" />
+            </label>
             <x-mint::form-error for="image" />
         </x-mint::form-section>
 

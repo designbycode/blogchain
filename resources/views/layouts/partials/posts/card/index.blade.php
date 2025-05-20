@@ -5,11 +5,9 @@
 <div {{ $attributes->merge(['class' => 'rounded-lg bg-gray-800 overflow-hidden shadow-md hover:shadow-lg border-gray-900 transition-shadow duration-300 border
 border-border']) }}>
     <a wire:navigate href="{{ route('posts.show', $post) }}">
-        <div class="relative h-48 w-full overflow-clip">
-            <img loading="lazy" src="{{ $post->getFirstMediaUrl('posts', 'card') }}"
-                 class="absolute inset-0 w-full object-cover block"
-                 alt="{{ $post->title }}" />
-        </div>
+        <img height="400" width="600" loading="lazy" src="{{ $post->getFirstMediaUrl('posts', 'card') }}"
+             class=" object-cover block w-full aspect-3/2"
+             alt="{{ $post->title }}" />
     </a>
     <div class="flex-1 p-6">
         <div class="flex justify-between items-center mb-2">
@@ -36,7 +34,7 @@ border-border']) }}>
             <span>{{ $post->user->name }}</span>
         </a>
         <div class="flex justify-between">
-            <livewire:like :model="$post" />
+            <livewire:component.like :model="$post" />
             <div class="flex space-x-3">
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -49,7 +47,6 @@ border-border']) }}>
                         <path stroke-linecap="round" stroke-linejoin="round"
                               d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
                     </svg>
-
                 </button>
             </div>
 

@@ -16,6 +16,7 @@
         "rtconner/laravel-likeable": "^3.2",
         "spatie/laravel-medialibrary": "^11.12",
         "spatie/laravel-permission": "^6.18",
+        "spatie/laravel-sluggable": "^3.7",
         "spatie/laravel-tags": "^4.10"
     },
     "require-dev": {

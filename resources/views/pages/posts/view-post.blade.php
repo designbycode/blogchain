@@ -31,7 +31,7 @@
                     <a href="#" class="text-xs px-2 py-1 rounded-full border border-gray-600 text-gray-600 hover:bg-gray-400/5">{{ $tag->name }}</a>
                 @endforeach
             </div>
-            
+
 
             <div class="w-full min-w-full prose md:prose-xl dark:prose-invert ">
                 {!! Str::markdown($post->content ) !!}
@@ -39,6 +39,10 @@
         </div>
         <div class="col-span-2 relative">
             <div class=" sticky top-12 z-0 bg-gray-800 rounded-md border border-gray-900 min-h-60">
+                <a href="https://grimmcoin.xyz" target="_blank">
+                    <img src="{{ Vite::asset('resources/img/ad.png') }}" alt="Grimm Coins" class="w-full transition-all hover:scale-110 h-full object-cover
+                    rounded-md" />
+                </a>
 
             </div>
         </div>
